@@ -1,0 +1,29 @@
+﻿@model List<StaffViewModel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Personal Name</th>
+        <th>Personal Title</th>
+        <th>Remove</th>
+        <th>Edit</th>
+        <th>Details</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <th>@item.StaffID</th>
+            <td>@item.Name</td>
+            <td>@item.Title</td>
+            <td><a href="/Staff/DeleteStaff/@item.StaffID" class="btn btn-outline-danger">Remove</a></td>
+            <td><a href="/Staff/UpdateStaff/@item.StaffID" class="btn btn-outline-success">Edit</a></td>
+            <td><a href="#" class="btn btn-outline-dark">Details</a></td>
+
+        </tr>
+    }
+</table>
+<a href="/Staff/AddStaff/" class="btn btn-outline-info">New Personal</a>
