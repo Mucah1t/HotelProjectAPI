@@ -12,6 +12,12 @@ namespace HotelProject.BusinessLayer.Concrete
     public class SubscribeManager : ISubscribeService
     {
         private readonly ISubscribeDal _subscribeDal;
+
+        public SubscribeManager(ISubscribeDal subscribeDal)
+        {
+            _subscribeDal = subscribeDal;
+        }
+
         public void TDelete(Subscribe entity)
         {
             _subscribeDal.Delete(entity);   
