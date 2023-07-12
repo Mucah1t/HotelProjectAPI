@@ -1,0 +1,48 @@
+﻿@model List<ResultBookingDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int iCount = 0;
+}
+
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Guest</th>
+                            <th>Check-in Date</th>
+                            <th>Check-out Date</th>
+                            <th>Status</th>
+                            <th>Confirm</th>
+                            <th>Cancel</th>
+                            <th>Hold</th>
+                            <th>Update</th>
+                            <th>Details</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+            @foreach (var item in Model)
+            {
+                iCount++;
+                            <tr>
+                                <th>@iCount</th>
+                                <td>@item.Name</td>
+                                <td>@(((DateTime)item.Checkin).ToString("dd-MMM-yyyy"))</td>
+                                <td>@(((DateTime)item.CheckOut).ToString("dd-MMM-yyyy"))</td>
+                                <td><span class="badge badge-primary px-2">@item.Status</span></td>
+                    <td><a href="#" class="btn btn-outline-primary">Confirm</a></td>
+                    <td><a href="#" class="btn btn-outline-danger">Cancel</a></td>
+                    <td><a href="#" class="btn btn-outline-warning">Hold</a></td>
+                    <td><a href="#" class="btn btn-outline-info">Update</a></td>
+                    <td><a href="#" class="btn btn-outline-dark">Details</a></td>
+                             @*   <td><a href="/BookingAdmin/ApprovedReservation2/@item.BookingID" class="btn btn-outline-primary">Onayla</a></td>
+                                <td><a href="/BookingAdmin/CancelReservation/@item.BookingID" class="btn btn-outline-danger">İptal Et</a></td>
+                                <td><a href="/BookingAdmin/WaitReservation/@item.BookingID" class="btn btn-outline-warning">Beklet</a></td>
+                                <td><a href="/BookingAdmin/UpdateBooking/@item.BookingID" class="btn btn-outline-info">Güncelle</a></td>
+                                <td><a href="/BookingAdmin/UpdateBooking/@item.BookingID" class="btn btn-outline-dark">Detaylar</a></td>*@
+                            </tr>
+            }
+                    </tbody>
+                </table>
+            </div>

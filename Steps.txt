@@ -1,3 +1,7 @@
 Api Test and Swagger--
 Thema
-Register-Login
+Register-Login--
+Onay Bekliyor
+Onaylandý
+Ýptal Edildi
+Bekletiliyor
