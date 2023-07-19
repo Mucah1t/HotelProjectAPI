@@ -1,0 +1,33 @@
+﻿@model List<ResultGuestDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int Count = 0;
+}
+
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>LastName</th>
+        <th>City</th>
+        <th>Remove</th>
+        <th>Edit</th>
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        Count++;
+        <tr>
+            <th>@Count>
+            <td>@item.Name/td>
+            <td>@item.Surname</td>
+            <td>@item.City</td>
+            <td><a href="/Guest/DeleteGuest/@item.GuestID" class="btn btn-outline-danger">Remove</a></td>
+            <td><a href="/Guest/UpdateGuest/@item.GuestID" class="btn btn-outline-success">Edit</a></td>
+
+
+        </tr>
+    }
+</table>
+<a href="/Guest/AddGuest/" class="btn btn-outline-info">New Guest</a>
