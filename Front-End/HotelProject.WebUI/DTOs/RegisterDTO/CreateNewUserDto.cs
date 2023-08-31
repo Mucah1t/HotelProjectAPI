@@ -23,6 +23,6 @@ namespace HotelProject.WebUI.DTOs.RegisterDTO
         [Compare("Password",ErrorMessage ="The passwords are not same.")]
         public string ConfirmPassword { get; set; }
 
-
+  
     }
 }
