@@ -9,18 +9,7 @@ namespace HotelProject.WebUI.Controllers
 {
     public class AdminUsersController : Controller
     {
-        //private readonly UserManager<AppUser> _userManager;
-
-        //public AdminUsersController(UserManager<AppUser> userManager)
-        //{
-        //    _userManager = userManager;
-        //}
-
-        //public IActionResult Index()
-        //{
-        //    var values = _userManager.Users.ToList();
-        //    return View(values);
-        //}
+    
 
         private readonly IHttpClientFactory _httpClientFactory;
 
@@ -31,15 +20,28 @@ namespace HotelProject.WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
+            //var client = _httpClientFactory.CreateClient(); //client created
+            //var responseMessage = await client.GetAsync("http://localhost:5069/api/AppUser"); //requested to related address
+            //if (responseMessage.IsSuccessStatusCode) //If a "successful code" is returned from the related address
+            //{
+            //    var jsonData = await responseMessage.Content.ReadAsStringAsync(); //we assign data to jsondata
+            //    var values = JsonConvert.DeserializeObject<List<ResultAppUserDto>>(jsonData); //We deserialized the incoming data which is in json type
+            //    return View(values);
+            //}
+            return View();
+        }
+        public async Task<IActionResult> UserList()
+        {
             var client = _httpClientFactory.CreateClient(); //client created
             var responseMessage = await client.GetAsync("http://localhost:5069/api/AppUser"); //requested to related address
             if (responseMessage.IsSuccessStatusCode) //If a "successful code" is returned from the related address
             {
                 var jsonData = await responseMessage.Content.ReadAsStringAsync(); //we assign data to jsondata
-                var values = JsonConvert.DeserializeObject<List<ResultAppUserDto>>(jsonData); //We deserialized the incoming data which is in json type
+                var values = JsonConvert.DeserializeObject<List<ResultAppUserListDto>>(jsonData); //We deserialized the incoming data which is in json type
                 return View(values);
             }
             return View();
         }
+
     }
 }

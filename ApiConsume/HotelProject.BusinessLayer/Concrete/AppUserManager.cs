@@ -30,7 +30,7 @@ namespace HotelProject.BusinessLayer.Concrete
 
         public List<AppUser> TGetList()
         {
-            throw new NotImplementedException();
+            return _appUserDal.GetList();
         }
 
         public void TInsert(AppUser entity)
@@ -46,6 +46,11 @@ namespace HotelProject.BusinessLayer.Concrete
         public List<AppUser> TUserListWithWorkLocation()
         {
             return _appUserDal.UserListWithWorkLocation();
+        }
+
+        public List<AppUser> TUsersListWithWorkLocations()
+        {
+           return _appUserDal.UsersListWithWorkLocations();
         }
     }
 }
