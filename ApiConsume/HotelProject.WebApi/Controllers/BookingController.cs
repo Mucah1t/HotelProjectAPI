@@ -65,6 +65,18 @@ namespace HotelProject.WebApi.Controllers
             var vGet = _bookingService.TLast2Bookings();
             return Ok(vGet);
         }
+        [HttpGet("BookingAproved")]
+        public IActionResult BookingAproved(int id)
+        {
+            _bookingService.TBookingStatusChangeApproved3(id);
+            return Ok();
+        }
+        [HttpGet("BookingCanceled")]
+        public IActionResult BookingCanceled(int id)
+        {
+            _bookingService.TBookingStatusChangeCancel(id);
+            return Ok();
+        }
     }
 }
 
